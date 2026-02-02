@@ -62,6 +62,7 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
+import { NavigationBar } from "@plasmicpkgs/plasmic-nav";
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: b5MBRrupYWYMid1UeX2phs/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: b5MBRrupYWYMid1UeX2phs/styleTokensProvider
 
@@ -84,6 +85,7 @@ export const PlasmicHomepage__ArgProps = new Array<ArgPropType>();
 export type PlasmicHomepage__OverridesType = {
   root?: Flex__<"div">;
   text?: Flex__<"div">;
+  navigationBar?: Flex__<typeof NavigationBar>;
 };
 
 export interface DefaultHomepageProps {}
@@ -167,6 +169,111 @@ function PlasmicHomepage__RenderFunc(props: {
           >
             {"Esse \u00e9 o site teste n\u00e3o tem como ter plugin nenhum\n"}
           </div>
+          <NavigationBar
+            data-plasmic-name={"navigationBar"}
+            data-plasmic-override={overrides.navigationBar}
+            brand={
+              <PlasmicLink__
+                className={classNames(
+                  projectcss.all,
+                  projectcss.a,
+                  sty.link__hl3Rl
+                )}
+                component={Link}
+                href={"#"}
+                platform={"nextjs"}
+              >
+                <PlasmicImg__
+                  alt={""}
+                  className={classNames(sty.img___9Fzb)}
+                  displayHeight={"253px"}
+                  displayMaxHeight={"none"}
+                  displayMaxWidth={"none"}
+                  displayMinHeight={"0"}
+                  displayMinWidth={"0"}
+                  displayWidth={"auto"}
+                  src={{
+                    src: "/plasmic/rewtd/images/garradasPng.png",
+                    fullWidth: 2330,
+                    fullHeight: 1620,
+                    aspectRatio: undefined
+                  }}
+                />
+              </PlasmicLink__>
+            }
+            className={classNames("__wab_instance", sty.navigationBar)}
+            closeButton={
+              <PlasmicImg__
+                alt={""}
+                className={classNames(sty.img___4R2Ql)}
+                displayHeight={"auto"}
+                displayMaxHeight={"none"}
+                displayMaxWidth={"none"}
+                displayMinHeight={"0"}
+                displayMinWidth={"0"}
+                displayWidth={"auto"}
+                src={"https://static1.plasmic.app/close.svg"}
+              />
+            }
+            itemsGap={8}
+            menuItems={
+              <React.Fragment>
+                <PlasmicLink__
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.a,
+                    projectcss.__wab_text,
+                    sty.link__ri96
+                  )}
+                  component={Link}
+                  href={"/"}
+                  platform={"nextjs"}
+                >
+                  {"Home"}
+                </PlasmicLink__>
+                <PlasmicLink__
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.a,
+                    projectcss.__wab_text,
+                    sty.link__unyoA
+                  )}
+                  component={Link}
+                  href={"/"}
+                  platform={"nextjs"}
+                >
+                  {"About"}
+                </PlasmicLink__>
+                <PlasmicLink__
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.a,
+                    projectcss.__wab_text,
+                    sty.link__o5IxH
+                  )}
+                  component={Link}
+                  href={"/"}
+                  platform={"nextjs"}
+                >
+                  {"Contact"}
+                </PlasmicLink__>
+              </React.Fragment>
+            }
+            openButton={
+              <PlasmicImg__
+                alt={""}
+                className={classNames(sty.img__vrwYi)}
+                displayHeight={"auto"}
+                displayMaxHeight={"none"}
+                displayMaxWidth={"none"}
+                displayMinHeight={"0"}
+                displayMinWidth={"0"}
+                displayWidth={"auto"}
+                src={"https://static1.plasmic.app/menu.svg"}
+              />
+            }
+            responsiveBreakpoint={768}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -174,8 +281,9 @@ function PlasmicHomepage__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "text"],
-  text: ["text"]
+  root: ["root", "text", "navigationBar"],
+  text: ["text"],
+  navigationBar: ["navigationBar"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -183,6 +291,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   text: "div";
+  navigationBar: typeof NavigationBar;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -273,6 +382,7 @@ export const PlasmicHomepage = Object.assign(
   {
     // Helper components rendering sub-elements
     text: makeNodeComponent("text"),
+    navigationBar: makeNodeComponent("navigationBar"),
 
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,
